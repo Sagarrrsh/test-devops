@@ -1,0 +1,23 @@
+# .gitpod.yml
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Setup Environment
+    init: |
+      echo "✅ Environment initialized with Docker, Jenkins, Ansible, Terraform, and Git"
+
+ports:
+  - port: 8080
+    onOpen: open-preview   # Jenkins UI
+  - port: 2375
+    onOpen: ignore         # Docker daemon
+  - port: 22
+    onOpen: ignore         # SSH if needed
+
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
+    - hashicorp.terraform
+    - redhat.ansible
+    - eamodio.gitlens
